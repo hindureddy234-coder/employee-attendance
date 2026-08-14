@@ -1,12 +1,4 @@
-print("Employee Attendance Tracker")
-print("Welcome!")
-employee_name = "Hindu"
-days_present = 18
-total_days = 20
-
-attendance_percentage = (days_present / total_days) * 100
-
-
+from attendance import calculate_attendance, get_status
 print("Employee Attendance Tracker")
 print("---------------------------")
 
@@ -17,12 +9,9 @@ total_days = int(input("Enter total working days: "))
 if days_present > total_days:
     print("Error: Days present cannot be greater than total working days.")
 else:
-    attendance_percentage = round((days_present / total_days) * 100, 2)
-
-    if attendance_percentage >= 75:
-        status = "Good"
-    else:
-        status = "Needs Improvement"
+    attendance_percentage = calculate_attendance(days_present, total_days)
+    status = get_status(attendance_percentage)
+    
 
     print()
     print("Employee:", employee_name)
@@ -32,4 +21,4 @@ else:
     print("Status:", status)
     print("Thank you for using the Employee Attendance Tracker!")
     print("See you next time")
-    
+
