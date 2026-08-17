@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Attendance Tracker</title>
+</head>
+<body>
+
+    <h1>Employee Attendance Tracker</h1>
+
+    <form method="POST">
+
+        <label>Employee Name:</label>
+        <input type="text" name="employee_name" required>
+        <br><br>
+
+        <label>Days Present:</label>
+        <input type="number" name="days_present" required>
+        <br><br>
+
+        <label>Total Working Days:</label>
+        <input type="number" name="total_days" required>
+        <br><br>
+
+        <button type="submit">Calculate Attendance</button>
+
+    </form>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    {% if result %}
+        <h2>Attendance Result</h2>
+
+        <p>Employee: {{ result.employee_name }}</p>
+        <p>Days Present: {{ result.days_present }}</p>
+        <p>Total Days: {{ result.total_days }}</p>
+        <p>Attendance: {{ result.attendance }}%</p>
+        <p>Status: {{ result.status }}</p>
+    {% endif %}
+
+</body>
+</html>
